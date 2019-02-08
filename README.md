@@ -37,17 +37,19 @@ Then, to make sure the the display is correctly addressed, from IntelliJ/PyCharm
 
 ## Reusing the Python Interpreter for Another Project
 
-The interpreter can be reused (it is global), but the deployment needs to configured and activated.
+The interpreter can be reused (it is global) in a new IntelliJ/PyCharm project, but the deployment needs to configured and activated.
 
 ### Configure the Deployment in IntelliJ
 
-- Under Tools/Deployment/Configuration, adjust the configuration of the pre-existing deployment for the server (which should be present as a result of the SSH interpreter creation), making sure it is the selected deployment ("tick" button). NOTE: Creating a totally new deployment (even if it contains the exact same settings) does not work in our experience.
+- Under Tools/Deployment/Configuration, adjust the configuration of the pre-existing deployment for the server (which should be present as a result of the SSH interpreter creation), making sure it is the selected deployment (use the "tick" button). NOTE: Creating a totally new deployment (even if it contains the exact same settings) does *not* work in our experience.
 - The deployment should contain the right type ("SFTP"), host name, and port and authentication information.
 - Click "Test connection" to verify that the connection can be established.
 - Under the "Mapping" tab, map the project root folder to a remote folder. Note that the folder specified is relative to the "Root path" under "Connection" (if it does not start with "/").
 - Apply the changed configuration.
-- Under Tools/Deployment, enable "Automatic Upload (always)"
+- Under Tools/Deployment, enable "Automatic Upload" (such that the menu item is ticked thereafter)
 
-### Activate the Deployment
+### Triggering Deployment
 
-In the list of deployments, activate the one that is to be used for your project by using the "tick" button.
+If "Automatic Upload" is enabled, deployments should be triggered automatically, but it is sometimes necessary to manually initiate deployment via the project context menu.
+
+Also, if you use git to switch between states outside of IntelliJ and thus externally modify files, the deployment should configured to act on externally modified files as well.
