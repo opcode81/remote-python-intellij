@@ -6,12 +6,16 @@ The use of remote interpreters is particularly useful in order to share computat
 ## Configure SSH Access with X11 Forwarding to Remote Machine
 
 Configure an SSH connection to the remote machine using a key for authentication (no password).
-Make sure X11 forwarding works for the connection.
+Make sure X11 forwarding works for the connection, i.e. you are able to open GUI applications on the remote machine.
+
+To support X11 on platforms that do not natively use it:
+* On Windows, install and run an XServer such as [XMing](https://sourceforge.net/projects/xming/).
+* On MacOS, install and run [XQuartz](https://www.xquartz.org/).
 
 ## Configure Remote Interpreter in IntelliJ
 
 - Under File/Project Structure, select "SDKs"
-- Click "+" to add a new interpreter
+- Click "+" to add a new interpreter and select "Python SDK"
 - Select "SSH Interpreter"
 - Enter host, port and user name and click "Next"
 - Enter location of python interpreter on remote machine (ideally a virtualenv, e.g. `/usr/local/share/virtualenvs/odmalg/bin/python`)
@@ -35,13 +39,16 @@ Then, to make sure the the display is correctly addressed, from IntelliJ/PyCharm
 
 The interpreter can be reused (it is global), but a new deployment needs to be created and activated.
 
-### Configure a New Deployment in IntelliJ
+### Configure the Deployment in IntelliJ
 
-- Under Tools/Deployment/Configuration, click "+" to add a new Deployment.
+- Under Tools/Deployment/Configuration, adjust the configuration of the pre-existing deployment for the server (which should be present as a result of the SSH interpreter creation), making sure it is the selected deployment ("tick" button). NOTE: Creating a totally new deployment (even if it contains the exact same settings) does not work in our experience.
 - Choose a name and select type "SFTP"
 - Set host name, port and root path (absolute path on remote machine).
   Set user name (for SSH access) and choose, for example, "Key pair" as authentication type, setting your private key and (optionally) passphrase.
 - Click "Test connection" to verify that the connection can be established.
+- Under the "Mapping" tab, map the project root folder to a remote folder. Note that the folder specified is relative to the "Root path" under "Connection" (if it does not start with "/").
+- Apply the changed configuration.
+- Under Tools/Deployment, enable "Automatic Upload (always)"
 
 ### Activate the Deployment
 
