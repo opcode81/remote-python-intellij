@@ -19,9 +19,9 @@ To support X11 on platforms that do not natively use it:
 - Select "SSH Interpreter"
 - Enter host, port and user name and click "Next"
 - Enter location of python interpreter on remote machine (ideally a virtualenv, e.g. `/usr/local/share/virtualenvs/odmalg/bin/python`)
-- Deployment Configuration
-  - Enter path for storage of temporary files (all relevant project files to be synchronised), e.g. `/home/myuser/myproject-remote`
-  - This last step will have created a new deployment, which will appear under Tools/Deployment
+- Deployment Configuration ("Sync Folders")
+  - Choose a path for the storage of project files on the remote server, which all project files will be synchronised to, e.g. `/home/myuser/myproject-remote`
+  - (The previous step will have created a new deployment, which will appear under Tools/Deployment.)
 
 ## Running Python Scripts Remotely 
 
