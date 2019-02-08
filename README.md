@@ -1,5 +1,8 @@
 # Remote Python Interpreter Configuration in IntelliJ/PyCharm
 
+This document describes how to set up a remote Python interpreter in IntelliJ/PyCharm.
+The use of remote interpreters is particularly useful in order to share computational resources (GPUs) or in order to execute jobs in remote clusters which provide access to data that is locally unavailable.
+
 ## Configure SSH Access with X11 Forwarding to Remote Machine
 
 Configure an SSH connection to the remote machine using a key for authentication (no password).
@@ -36,7 +39,7 @@ The interpreter can be reused (it is global), but a new deployment needs to be c
 
 - Under Tools/Deployment/Configuration, click "+" to add a new Deployment.
 - Choose a name and select type "SFTP"
-- Set host name, port and root path (will be relative to your user directory).
+- Set host name, port and root path (absolute path on remote machine).
   Set user name (for SSH access) and choose, for example, "Key pair" as authentication type, setting your private key and (optionally) passphrase.
 - Click "Test connection" to verify that the connection can be established.
 
