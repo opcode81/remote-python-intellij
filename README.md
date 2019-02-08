@@ -37,14 +37,12 @@ Then, to make sure the the display is correctly addressed, from IntelliJ/PyCharm
 
 ## Reusing the Python Interpreter for Another Project
 
-The interpreter can be reused (it is global), but a new deployment needs to be created and activated.
+The interpreter can be reused (it is global), but the deployment needs to configured and activated.
 
 ### Configure the Deployment in IntelliJ
 
 - Under Tools/Deployment/Configuration, adjust the configuration of the pre-existing deployment for the server (which should be present as a result of the SSH interpreter creation), making sure it is the selected deployment ("tick" button). NOTE: Creating a totally new deployment (even if it contains the exact same settings) does not work in our experience.
-- Choose a name and select type "SFTP"
-- Set host name, port and root path (absolute path on remote machine).
-  Set user name (for SSH access) and choose, for example, "Key pair" as authentication type, setting your private key and (optionally) passphrase.
+- The deployment should contain the right type ("SFTP"), host name, and port and authentication information.
 - Click "Test connection" to verify that the connection can be established.
 - Under the "Mapping" tab, map the project root folder to a remote folder. Note that the folder specified is relative to the "Root path" under "Connection" (if it does not start with "/").
 - Apply the changed configuration.
