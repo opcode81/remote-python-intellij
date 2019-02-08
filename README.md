@@ -2,14 +2,8 @@
 
 ## Configure SSH Access with X11 Forwarding to Remote Machine
 
-* Configure SSH connection with X11 forwarding and connect to remote machine
-
-* Note down the value of the DISPLAY variable on the remote machine
-
-    ```
-    kschroed@leibniz:~$ echo $DISPLAY
-    localhost:14.0
-    ```
+Configure an SSH connection to the remote machine using a key for authentication (no password).
+Make sure X11 forwarding works for the connection.
 
 ## Configure Remote Interpreter in IntelliJ
 
@@ -26,7 +20,11 @@
 
 To run a script remotely, simply choose the remote interpreter we configured above.
 
-In order to make sure that interactive plots and other things that pop up windows will be transferred to your local machine, make sure you have a X11 server running (e.g. XMing on Windows) and either ... 
+In order to make sure that interactive plots and other things that pop up windows will be transferred to your local machine, make sure that 
+* you have an X11 server running on your local machine (e.g. XMing on Windows) 
+* you have an open SSH connection to the remote machine with X11 forwarding enabled. Note down the value of the DISPLAY environment variable on the remote machine. 
+
+Then, to make sure the the display is correctly addressed, from IntelliJ/PyCharm, *either*
 * set, in each run configuration, the environment variable DISPLAY to the value that we retrieved earlier 
 * configure the value of the DISPLAY environment variable in the Settings/"Python Console" and configure each run configuration to "Run with Python Console"
 
