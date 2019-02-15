@@ -31,9 +31,11 @@ In order to make sure that interactive plots and other things that pop up window
 * you have an X11 server running on your local machine (e.g. XMing on Windows) 
 * you have an open SSH connection to the remote machine with X11 forwarding enabled. Note down the value of the DISPLAY environment variable on the remote machine. 
 
-Then, to make sure the the display is correctly addressed, from IntelliJ/PyCharm, *either*
-* set, in each run configuration, the environment variable DISPLAY to the value that we retrieved earlier 
-* configure the value of the DISPLAY environment variable in the Settings/"Python Console" and configure each run configuration to "Run with Python Console"
+Then, make sure IntelliJ is correctly configured:
+* To make sure the the display is correctly addressed, from IntelliJ/PyCharm, *either*
+    * set, in each run configuration, the environment variable DISPLAY to the value that we retrieved earlier 
+    * configure the value of the DISPLAY environment variable in the Settings/"Python Console" and configure each run configuration to "Run with Python Console"
+* To prevent plot windows to be captured by IntellIJ (which does not work), under Settings/Tools/Python Scientific, uncheck "Show plots in tool window".
 
 ## Reusing the Python Interpreter for Another Project
 
