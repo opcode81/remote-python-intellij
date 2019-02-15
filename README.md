@@ -10,7 +10,7 @@ Make sure X11 forwarding works for the connection, i.e. you are able to open GUI
 
 To support X11 on platforms that do not natively use it:
 * On Windows, install and run an XServer such as [XMing](https://sourceforge.net/projects/xming/).
-* On MacOS, install and run [XQuartz](https://www.xquartz.org/).
+* On MacOS, install and run [XQuartz](https://www.xquartz.org/) and use the XQuartz terminal to initiate the SSH session (with "-XY" argument).
 
 ## Configure Remote Interpreter in IntelliJ
 
