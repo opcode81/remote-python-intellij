@@ -50,6 +50,6 @@ The interpreter can be reused (it is global) in a new IntelliJ/PyCharm project, 
 
 ### Triggering Deployment
 
-If "Automatic Upload" is enabled, deployments should be triggered automatically, but it is sometimes necessary to manually initiate deployment via the project context menu.
+If "Automatic Upload" is enabled, deployments should be triggered automatically, but it is sometimes necessary to manually initiate deployment via the project context menu: Right click project title the select Deployment/"Upload to ...".
 
-Also, if you use git to switch between states outside of IntelliJ and thus externally modify files, the deployment should configured to act on externally modified files as well.
+Also, if you use git to switch between states outside of IntelliJ and thus externally modify files, the deployment should configured to act on externally modified files as well: Under Tools/Deployment/Options, uncheck "Skip external changes".
