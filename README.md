@@ -1,12 +1,12 @@
 # Remote Python Interpreter Configuration in IntelliJ/PyCharm
 
 This document describes how to set up a remote Python interpreter in IntelliJ/PyCharm.
-The use of remote interpreters is particularly useful in order to share computational resources (GPUs) or in order to execute jobs in remote clusters which provide access to data that is locally unavailable.
+The use of remote interpreters is particularly useful in order to share computational resources such as GPUs or in order to execute jobs in remote clusters which provide access to data that is locally unavailable.
 
 ## Configure SSH Access with X11 Forwarding to Remote Machine
 
 Configure an SSH connection to the remote machine using a key for authentication (no password).
-Make sure X11 forwarding works for the connection, i.e. you are able to open GUI applications on the remote machine.
+Make sure X11 forwarding works for the connection, i.e. you are able to open graphical applications on the remote machine.
 
 To support X11 on platforms that do not natively use it:
 * On Windows, install and run an XServer such as [XMing](https://sourceforge.net/projects/xming/).
@@ -50,8 +50,8 @@ The interpreter can be reused (it is global) in a new IntelliJ/PyCharm project, 
 - Apply the changed configuration.
 - Under Tools/Deployment, enable "Automatic Upload" (such that the menu item is ticked thereafter)
 
-### Triggering Deployment
+## Triggering Deployment
 
-If "Automatic Upload" is enabled, deployments should be triggered automatically, but it is sometimes necessary to manually initiate deployment via the project context menu: Right click project title the select Deployment/"Upload to ...".
+If "Automatic Upload" is enabled under Tools/Deployment, deployments should be triggered automatically, but it is sometimes necessary to manually initiate deployment via the project context menu: Right click project title the select Deployment/"Upload to ...".
 
 Also, if you use git to switch between states outside of IntelliJ and thus externally modify files, the deployment should configured to act on externally modified files as well: Under Tools/Deployment/Options, uncheck "Skip external changes".
