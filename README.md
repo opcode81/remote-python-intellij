@@ -9,7 +9,7 @@ Configure an SSH connection to the remote machine using a key for authentication
 Make sure X11 forwarding works for the connection, i.e. you are able to open graphical applications on the remote machine.
 
 To support X11 on platforms that do not natively use it:
-* On Windows, install and run an XServer such as [XMing](https://sourceforge.net/projects/xming/).
+* On Windows, establish a remote connection using an integrated solution such as [MobaXterm](https://mobaxterm.mobatek.net/download.html) or a stand-alone X-server such as [XMing](https://sourceforge.net/projects/xming/).
 * On MacOS, install and run [XQuartz](https://www.xquartz.org/) and use the XQuartz terminal to initiate the SSH session (with "-XY" argument).
 
 ## Configure Remote Interpreter in IntelliJ
@@ -28,13 +28,23 @@ To support X11 on platforms that do not natively use it:
 To run a script remotely, simply choose the remote interpreter we configured above.
 
 In order to make sure that interactive plots and other things that pop up windows will be transferred to your local machine, make sure that 
-* you have an X11 server running on your local machine (e.g. XMing on Windows) 
+* you have an X11 server running on your local machine (see above) 
 * you have an open SSH connection to the remote machine with X11 forwarding enabled. Note down the value of the DISPLAY environment variable on the remote machine. 
 
 Then, make sure IntelliJ is correctly configured:
 * To make sure the the display is correctly addressed, from IntelliJ/PyCharm, *either*
     * set, in each run configuration, the environment variable DISPLAY to the value that we retrieved earlier 
     * configure the value of the DISPLAY environment variable in the Settings/"Python Console" and configure each run configuration to "Run with Python Console"
+    * configure the Python console to use the desired rendering backend by configuring the Python Console starting script, e.g. QT as follows
+      
+            import os
+            import sys; print('Python %s on %s, running in %s' % (sys.version, sys.platform, os.getcwd()))
+            print(f"DISPLAY: {os.getenv('DISPLAY')}")
+            sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])
+            %load_ext autoreload
+            %autoreload 2
+            %matplotlib qt5
+
 * To prevent plot windows to be captured by IntellIJ (which does not work), under Settings/Tools/Python Scientific, uncheck "Show plots in tool window".
 
 ## Reusing the Python Interpreter for Another Project
